@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Compose Sample GitHub</string>
+    <string name="top_bar_title">GitHub Usuários</string>
+    <string name="icon_favorites_description">Favorito</string>
+    <string name="generic_loading_message">Por favor aguarde…</string>
+    <string name="generic_error_message">Algo deu errado...</string>
+    <string name="try_again">Tentar novamente</string>
+</resources>
