@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.joysouza.compose.sample.github.core.designsystem.components.HomeScreen
 import com.joysouza.compose.sample.github.core.navigation.UsersRoutes
 import com.joysouza.compose.sample.github.core.navigation.navigateToUsersDetail
 import com.joysouza.compose.sample.github.features.user_detalis.presentation.UsersDetailScreen
@@ -23,9 +24,13 @@ fun AppNavHost(
         composable(
             route = UsersRoutes.USERS
         ) {
-            UsersScreen(
-                navigateToDetail = { userLogin ->
-                    navController.navigateToUsersDetail(userLogin)
+            HomeScreen(
+                content = {
+                    UsersScreen(
+                        navigateToDetail = { userLogin ->
+                            navController.navigateToUsersDetail(userLogin)
+                        }
+                    )
                 }
             )
         }
@@ -42,7 +47,12 @@ fun AppNavHost(
             val userLoginType =
                 navBackStackEntry.arguments?.getString(UsersRoutes.USER_LOGIN)
             if (userLoginType != null) {
-                UsersDetailScreen(userLoginType)
+                UsersDetailScreen(
+                    userLogin = userLoginType,
+                    onBackButtonClicked = {
+                        navController.popBackStack()
+                    }
+                )
             }
         }
     }
