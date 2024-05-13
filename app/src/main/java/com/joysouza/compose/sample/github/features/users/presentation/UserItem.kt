@@ -16,9 +16,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.onClick
@@ -63,10 +65,11 @@ fun CardContent(user: User) {
             AsyncImage(
                 modifier = Modifier
                     .clip(CircleShape)
-                    .size(40.dp),
+                    .size(40.dp)
+                    .align(Alignment.CenterVertically),
                 model = user.avatarUrl,
+                placeholder = painterResource(id = R.drawable.avatar_placeholder),
                 contentDescription = "Imagem do usuário",
-                contentScale = ContentScale.Crop,
             )
             Column(
                 modifier = Modifier
