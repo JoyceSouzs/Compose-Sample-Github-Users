@@ -8,7 +8,7 @@ object NetworkModule {
     val module = module {
         single {
             Retrofit.Builder()
-                .baseUrl(Endpoint.BASE_URL)
+                .baseUrl(ApiEndpoints.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
