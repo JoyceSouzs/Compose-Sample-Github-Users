@@ -38,7 +38,6 @@ fun UserItem(
     Card(
         onClick = { navigateToDetail(user.login) },
         modifier = Modifier
-            .padding(horizontal = 10.dp, vertical = 4.dp)
             .semantics {
                 contentDescription = "Info usuário"
                 onClick(
